@@ -44,7 +44,7 @@ public class ServiceDAO implements InitializingBean {
     }
 
     public Service getByHostAndPort(String host, Integer port) throws SQLException {
-        PreparedStatement getServiceId = connection.prepareStatement("SELECT id FROM service WHERE host='" + host + "' AND PORT=" + port);
+        PreparedStatement getServiceId = connection.prepareStatement("SELECT * FROM service WHERE host='" + host + "' AND PORT=" + port);
 
         ResultSet result = getServiceId.executeQuery();
         result.next();

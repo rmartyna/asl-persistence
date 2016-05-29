@@ -101,5 +101,17 @@ CREATE TABLE IF NOT EXISTS console_configuration (
 CREATE TABLE IF NOT EXISTS service_configuration (
   id SERIAL PRIMARY KEY,
   service_id INTEGER REFERENCES service,
-
-)
+  mode TEXT NOT NULL,
+  poll_rate INTEGER NOT NULL,
+  cpu_frequency INTEGER NOT NULL,
+  cpu_enabled INTEGER NOT NULL,
+  disk_frequency INTEGER NOT NULL,
+  disk_enabled INTEGER NOT NULL,
+  memory_frequency INTEGER NOT NULL,
+  memory_enabled INTEGER NOT NULL,
+  network_frequency INTEGER NOT NULL,
+  network_enaled INTEGER NOT NULL,
+  syslog_frequency INTEGER NOT NULL,
+  syslog_enabled INTEGER NOT NULL,
+  syslog_list TEXT NOT NULL
+);
