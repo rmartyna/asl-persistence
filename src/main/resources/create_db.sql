@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS service (
 CREATE TABLE IF NOT EXISTS cpu (
 	id SERIAL PRIMARY KEY,
 	service_id INTEGER,
-	description VARCHAR(100)
+	description VARCHAR(100),
 	FOREIGN KEY (service_id) REFERENCES service (id)
        ON DELETE CASCADE
 );
