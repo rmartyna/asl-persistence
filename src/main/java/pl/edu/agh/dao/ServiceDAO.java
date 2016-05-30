@@ -60,6 +60,13 @@ public class ServiceDAO implements InitializingBean {
         putServiceId.executeUpdate();
     }
 
+    public void delete(Service service) throws SQLException {
+        PreparedStatement statement = connection.prepareStatement("DELETE FROM service WHERE id=?");
+        statement.setInt(1, (int) service.getId());
+
+        statement.executeUpdate();
+    }
+
     public void setDbConnection(DbConnection dbConnection) {
         this.dbConnection = dbConnection;
     }

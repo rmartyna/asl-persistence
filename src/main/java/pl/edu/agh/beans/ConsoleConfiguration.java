@@ -19,18 +19,29 @@ public class ConsoleConfiguration {
 
     private double cpuLoadUpperBound;
 
-    private double bandwidthLowerBound;
-
-    private double bandwidthUpperBound;
-
-    private double ioLowerBound;
-
-    private double ioUpperBound;
-
     private double ramLowerBound;
 
     private double ramUpperBound;
 
+    private double networkDlLowerBound;
+
+    private double networkDlUpperBound;
+
+    private double networkUlLowerBound;
+
+    private double networkUlUpperBound;
+
+    private double diskReadLowerBound;
+
+    private double diskReadUpperBound;
+
+    private double diskWriteLowerBound;
+
+    private double diskWriteUpperBound;
+
+    private double diskUsageLowerBound;
+
+    private double diskUsageUpperBound;
 
     public ConsoleConfiguration() {
 
@@ -43,12 +54,18 @@ public class ConsoleConfiguration {
         cpuTempUpperBound = resultSet.getDouble(4);
         cpuLoadLowerBound = resultSet.getDouble(5);
         cpuLoadUpperBound = resultSet.getDouble(6);
-        bandwidthLowerBound = resultSet.getDouble(7);
-        bandwidthUpperBound = resultSet.getDouble(8);
-        ioLowerBound = resultSet.getDouble(9);
-        ioUpperBound = resultSet.getDouble(10);
-        ramLowerBound = resultSet.getDouble(11);
-        ramUpperBound = resultSet.getDouble(12);
+        ramLowerBound = resultSet.getDouble(7);
+        ramUpperBound = resultSet.getDouble(8);
+        networkDlLowerBound = resultSet.getDouble(9);
+        networkDlUpperBound = resultSet.getDouble(10);
+        networkUlLowerBound = resultSet.getDouble(11);
+        networkUlUpperBound = resultSet.getDouble(12);
+        diskReadLowerBound = resultSet.getDouble(13);
+        diskReadUpperBound = resultSet.getDouble(14);
+        diskWriteLowerBound = resultSet.getDouble(15);
+        diskWriteUpperBound = resultSet.getDouble(16);
+        diskUsageLowerBound = resultSet.getDouble(17);
+        diskUsageUpperBound = resultSet.getDouble(18);
     }
 
     @Override
@@ -60,12 +77,18 @@ public class ConsoleConfiguration {
                 ", cpuTempUpperBound=" + cpuTempUpperBound +
                 ", cpuLoadLowerBound=" + cpuLoadLowerBound +
                 ", cpuLoadUpperBound=" + cpuLoadUpperBound +
-                ", bandwidthLowerBound=" + bandwidthLowerBound +
-                ", bandwidthUpperBound=" + bandwidthUpperBound +
-                ", ioLowerBound=" + ioLowerBound +
-                ", ioUpperBound=" + ioUpperBound +
                 ", ramLowerBound=" + ramLowerBound +
                 ", ramUpperBound=" + ramUpperBound +
+                ", networkDlLowerBound=" + networkDlLowerBound +
+                ", networkDlUpperBound=" + networkDlUpperBound +
+                ", networkUlLowerBound=" + networkUlLowerBound +
+                ", networkUlUpperBound=" + networkUlUpperBound +
+                ", diskReadLowerBound=" + diskReadLowerBound +
+                ", diskReadUpperBound=" + diskReadUpperBound +
+                ", diskWriteLowerBound=" + diskWriteLowerBound +
+                ", diskWriteUpperBound=" + diskWriteUpperBound +
+                ", diskUsageLowerBound=" + diskUsageLowerBound +
+                ", diskUsageUpperBound=" + diskUsageUpperBound +
                 '}';
     }
 
@@ -82,12 +105,18 @@ public class ConsoleConfiguration {
         if (Double.compare(that.cpuTempUpperBound, cpuTempUpperBound) != 0) return false;
         if (Double.compare(that.cpuLoadLowerBound, cpuLoadLowerBound) != 0) return false;
         if (Double.compare(that.cpuLoadUpperBound, cpuLoadUpperBound) != 0) return false;
-        if (Double.compare(that.bandwidthLowerBound, bandwidthLowerBound) != 0) return false;
-        if (Double.compare(that.bandwidthUpperBound, bandwidthUpperBound) != 0) return false;
-        if (Double.compare(that.ioLowerBound, ioLowerBound) != 0) return false;
-        if (Double.compare(that.ioUpperBound, ioUpperBound) != 0) return false;
         if (Double.compare(that.ramLowerBound, ramLowerBound) != 0) return false;
-        return Double.compare(that.ramUpperBound, ramUpperBound) == 0;
+        if (Double.compare(that.ramUpperBound, ramUpperBound) != 0) return false;
+        if (Double.compare(that.networkDlLowerBound, networkDlLowerBound) != 0) return false;
+        if (Double.compare(that.networkDlUpperBound, networkDlUpperBound) != 0) return false;
+        if (Double.compare(that.networkUlLowerBound, networkUlLowerBound) != 0) return false;
+        if (Double.compare(that.networkUlUpperBound, networkUlUpperBound) != 0) return false;
+        if (Double.compare(that.diskReadLowerBound, diskReadLowerBound) != 0) return false;
+        if (Double.compare(that.diskReadUpperBound, diskReadUpperBound) != 0) return false;
+        if (Double.compare(that.diskWriteLowerBound, diskWriteLowerBound) != 0) return false;
+        if (Double.compare(that.diskWriteUpperBound, diskWriteUpperBound) != 0) return false;
+        if (Double.compare(that.diskUsageLowerBound, diskUsageLowerBound) != 0) return false;
+        return Double.compare(that.diskUsageUpperBound, diskUsageUpperBound) == 0;
 
     }
 
@@ -105,17 +134,29 @@ public class ConsoleConfiguration {
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         temp = Double.doubleToLongBits(cpuLoadUpperBound);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits(bandwidthLowerBound);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits(bandwidthUpperBound);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits(ioLowerBound);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits(ioUpperBound);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
         temp = Double.doubleToLongBits(ramLowerBound);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         temp = Double.doubleToLongBits(ramUpperBound);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(networkDlLowerBound);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(networkDlUpperBound);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(networkUlLowerBound);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(networkUlUpperBound);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(diskReadLowerBound);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(diskReadUpperBound);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(diskWriteLowerBound);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(diskWriteUpperBound);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(diskUsageLowerBound);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        temp = Double.doubleToLongBits(diskUsageUpperBound);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         return result;
     }
@@ -168,38 +209,6 @@ public class ConsoleConfiguration {
         this.cpuLoadUpperBound = cpuLoadUpperBound;
     }
 
-    public double getBandwidthLowerBound() {
-        return bandwidthLowerBound;
-    }
-
-    public void setBandwidthLowerBound(double bandwidthLowerBound) {
-        this.bandwidthLowerBound = bandwidthLowerBound;
-    }
-
-    public double getBandwidthUpperBound() {
-        return bandwidthUpperBound;
-    }
-
-    public void setBandwidthUpperBound(double bandwidthUpperBound) {
-        this.bandwidthUpperBound = bandwidthUpperBound;
-    }
-
-    public double getIoLowerBound() {
-        return ioLowerBound;
-    }
-
-    public void setIoLowerBound(double ioLowerBound) {
-        this.ioLowerBound = ioLowerBound;
-    }
-
-    public double getIoUpperBound() {
-        return ioUpperBound;
-    }
-
-    public void setIoUpperBound(double ioUpperBound) {
-        this.ioUpperBound = ioUpperBound;
-    }
-
     public double getRamLowerBound() {
         return ramLowerBound;
     }
@@ -214,5 +223,85 @@ public class ConsoleConfiguration {
 
     public void setRamUpperBound(double ramUpperBound) {
         this.ramUpperBound = ramUpperBound;
+    }
+
+    public double getNetworkDlLowerBound() {
+        return networkDlLowerBound;
+    }
+
+    public void setNetworkDlLowerBound(double networkDlLowerBound) {
+        this.networkDlLowerBound = networkDlLowerBound;
+    }
+
+    public double getNetworkDlUpperBound() {
+        return networkDlUpperBound;
+    }
+
+    public void setNetworkDlUpperBound(double networkDlUpperBound) {
+        this.networkDlUpperBound = networkDlUpperBound;
+    }
+
+    public double getNetworkUlLowerBound() {
+        return networkUlLowerBound;
+    }
+
+    public void setNetworkUlLowerBound(double networkUlLowerBound) {
+        this.networkUlLowerBound = networkUlLowerBound;
+    }
+
+    public double getNetworkUlUpperBound() {
+        return networkUlUpperBound;
+    }
+
+    public void setNetworkUlUpperBound(double networkUlUpperBound) {
+        this.networkUlUpperBound = networkUlUpperBound;
+    }
+
+    public double getDiskReadLowerBound() {
+        return diskReadLowerBound;
+    }
+
+    public void setDiskReadLowerBound(double diskReadLowerBound) {
+        this.diskReadLowerBound = diskReadLowerBound;
+    }
+
+    public double getDiskReadUpperBound() {
+        return diskReadUpperBound;
+    }
+
+    public void setDiskReadUpperBound(double diskReadUpperBound) {
+        this.diskReadUpperBound = diskReadUpperBound;
+    }
+
+    public double getDiskWriteLowerBound() {
+        return diskWriteLowerBound;
+    }
+
+    public void setDiskWriteLowerBound(double diskWriteLowerBound) {
+        this.diskWriteLowerBound = diskWriteLowerBound;
+    }
+
+    public double getDiskWriteUpperBound() {
+        return diskWriteUpperBound;
+    }
+
+    public void setDiskWriteUpperBound(double diskWriteUpperBound) {
+        this.diskWriteUpperBound = diskWriteUpperBound;
+    }
+
+    public double getDiskUsageLowerBound() {
+        return diskUsageLowerBound;
+    }
+
+    public void setDiskUsageLowerBound(double diskUsageLowerBound) {
+        this.diskUsageLowerBound = diskUsageLowerBound;
+    }
+
+    public double getDiskUsageUpperBound() {
+        return diskUsageUpperBound;
+    }
+
+    public void setDiskUsageUpperBound(double diskUsageUpperBound) {
+        this.diskUsageUpperBound = diskUsageUpperBound;
     }
 }
