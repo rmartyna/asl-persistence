@@ -81,7 +81,7 @@ public class ConsoleConfigurationDAO implements InitializingBean {
                         "cpu_temp_lower_color=?,cpu_temp_upper_color=?," +
                         "cpu_load_lower_color=?,cpu_load_upper_color=?," +
                         "ram_load_lower_color=?,ram_load_upper_color=?," +
-                        "network_dl_lower_color?,network_dl_upper_color=?," +
+                        "network_dl_lower_color=?,network_dl_upper_color=?," +
                         "network_ul_lower_color=?,network_ul_upper_color=?," +
                         "disk_read_lower_color=?,disk_read_upper_color=?," +
                         "disk_write_lower_color=?,disk_write_upper_color=?," +
