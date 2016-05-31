@@ -78,14 +78,14 @@ public class ConsoleConfigurationDAO implements InitializingBean {
     public void update(ConsoleConfiguration consoleConfiguration) throws  SQLException {
         PreparedStatement statement =
                 connection.prepareStatement("UPDATE console_configuration SET " +
-                        "cpu_temp_lower_bound=?,cpu_temp_upper_bound=?," +
-                        "cpu_load_lower_bound=?,cpu_load_upper_bound=?," +
-                        "ram_load_lower_bound=?,ram_load_upper_bound=?," +
-                        "network_dl_lower_bound=?,network_dl_upper_bound=?," +
-                        "network_ul_lower_bound=?,network_ul_upper_bound=?," +
-                        "disk_read_lower_bound=?,disk_read_upper_bound=?," +
-                        "disk_write_lower_bound=?,disk_write_upper_bound=?," +
-                        "disk_usage_lower_bound=?,disk_usage_upper_bound=? WHERE id=?");
+                        "cpu_temp_lower_color=?,cpu_temp_upper_color=?," +
+                        "cpu_load_lower_color=?,cpu_load_upper_color=?," +
+                        "ram_load_lower_color=?,ram_load_upper_color=?," +
+                        "network_dl_lower_color?,network_dl_upper_color=?," +
+                        "network_ul_lower_color=?,network_ul_upper_color=?," +
+                        "disk_read_lower_color=?,disk_read_upper_color=?," +
+                        "disk_write_lower_color=?,disk_write_upper_color=?," +
+                        "disk_usage_lower_color=?,disk_usage_upper_color=? WHERE id=?");
 
         statement.setDouble(1, consoleConfiguration.getCpuTempLowerBound());
         statement.setDouble(2, consoleConfiguration.getCpuTempUpperBound());
