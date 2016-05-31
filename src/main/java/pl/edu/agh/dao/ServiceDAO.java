@@ -11,6 +11,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This software may be modified and distributed under the terms
+ *  of the BSD license.  See the LICENSE.txt file for details.
+ */
 
 public class ServiceDAO implements InitializingBean {
 
@@ -32,6 +36,15 @@ public class ServiceDAO implements InitializingBean {
             serviceList.add(new Service(result));
 
         return serviceList;
+    }
+
+    public Service getById(Integer id) throws SQLException {
+        PreparedStatement statement = connection.prepareStatement("SELECT * FROM service WHERE id=?");
+        statement.setInt(1, id);
+
+        ResultSet result = statement.executeQuery();
+        result.next();
+        return new Service(result);
     }
 
     public Service getByHost(String host) throws SQLException {

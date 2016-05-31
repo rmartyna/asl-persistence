@@ -6,6 +6,11 @@ import org.springframework.beans.factory.InitializingBean;
 import javax.sql.DataSource;
 import java.sql.Connection;
 
+/**
+ * This software may be modified and distributed under the terms
+ *  of the BSD license.  See the LICENSE.txt file for details.
+ */
+
 public class DbConnection implements InitializingBean {
 
     private Connection connection;
