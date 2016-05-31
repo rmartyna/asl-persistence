@@ -11,13 +11,14 @@ import java.sql.Connection;
  *  of the BSD license.  See the LICENSE.txt file for details.
  */
 
+/**
+ * Utility class that returns connection to database
+ */
 public class DbConnection implements InitializingBean {
 
     private Connection connection;
 
     private DataSource dataSource;
-
-    private static final Logger LOGGER = Logger.getLogger(DbConnection.class);
 
     @Override
     public void afterPropertiesSet() throws Exception {
