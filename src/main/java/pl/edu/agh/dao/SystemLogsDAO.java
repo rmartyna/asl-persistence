@@ -34,7 +34,7 @@ public class SystemLogsDAO implements InitializingBean {
     }
 
     public List<SystemLog> getSystemLogList(int serviceId, String filePath, int fileNumber) throws SQLException {
-        PreparedStatement getLastFile = connection.prepareStatement("SELECT log FROM system_logs WHERE service_id=? AND file_path=? AND file_number=? ORDER BY id");
+        PreparedStatement getLastFile = connection.prepareStatement("SELECT * FROM system_logs WHERE service_id=? AND file_path=? AND file_number=? ORDER BY id");
         getLastFile.setInt(1, serviceId);
         getLastFile.setString(2, filePath);
         getLastFile.setInt(3, fileNumber);
