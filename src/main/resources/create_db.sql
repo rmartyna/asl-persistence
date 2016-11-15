@@ -2,7 +2,8 @@ CREATE TABLE IF NOT EXISTS service (
 	id SERIAL PRIMARY KEY,
 	host VARCHAR(50) NOT NULL,
 	port INTEGER NOT NULL,
-	description VARCHAR(100)
+	description VARCHAR(100),
+	password VARCHAR(100)
 );
 
 CREATE TABLE IF NOT EXISTS cpu (

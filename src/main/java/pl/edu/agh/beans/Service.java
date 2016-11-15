@@ -18,6 +18,8 @@ public class Service {
 
     private String description;
 
+    private String password;
+
     public Service() {
 
     }
@@ -27,12 +29,14 @@ public class Service {
         host = resultSet.getString(2);
         port = resultSet.getInt(3);
         description = resultSet.getString(4);
+        password = resultSet.getString(5);
     }
 
-    public Service(String host, int port, String description) {
+    public Service(String host, int port, String description, String password) {
         this.host = host;
         this.port = port;
         this.description = description;
+        this.password = password;
     }
 
     public long getId() {
@@ -67,6 +71,14 @@ public class Service {
         this.description = description;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -77,7 +89,8 @@ public class Service {
         if (id != service.id) return false;
         if (port != service.port) return false;
         if (host != null ? !host.equals(service.host) : service.host != null) return false;
-        return description != null ? description.equals(service.description) : service.description == null;
+        if (description != null ? !description.equals(service.description) : service.description != null) return false;
+        return password != null ? password.equals(service.password) : service.password == null;
 
     }
 
@@ -87,6 +100,7 @@ public class Service {
         result = 31 * result + (host != null ? host.hashCode() : 0);
         result = 31 * result + port;
         result = 31 * result + (description != null ? description.hashCode() : 0);
+        result = 31 * result + (password != null ? password.hashCode() : 0);
         return result;
     }
 
@@ -97,6 +111,7 @@ public class Service {
                 ", host='" + host + '\'' +
                 ", port=" + port +
                 ", description='" + description + '\'' +
+                ", password='" + password + '\'' +
                 '}';
     }
 }
