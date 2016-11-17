@@ -65,11 +65,21 @@ public class ServiceDAO implements InitializingBean {
         return new Service(result);
     }
 
+    public Service getByPassword(String password) throws SQLException {
+        PreparedStatement getServiceId = connection.prepareStatement("SELECT * FROM service WHERE password='" + password + "'");
+
+        ResultSet result = getServiceId.executeQuery();
+        result.next();
+
+        return new Service(result);
+    }
+
     public void insert(Service service) throws SQLException {
-        PreparedStatement putServiceId = connection.prepareStatement("INSERT INTO service(host, port, description) VALUES(?, ?, ?)");
+        PreparedStatement putServiceId = connection.prepareStatement("INSERT INTO service(host, port, description, password) VALUES(?, ?, ?, ?)");
         putServiceId.setString(1, service.getHost());
         putServiceId.setInt(2, service.getPort());
         putServiceId.setString(3, service.getDescription());
+        putServiceId.setString(4, service.getPassword());
         putServiceId.executeUpdate();
     }
 
